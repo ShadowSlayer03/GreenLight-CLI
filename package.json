@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "greenlight": "./bin/greenlight.js"
+    "greenlight": "bin/greenlight.js"
   },
   "repository": {
     "type": "git",
