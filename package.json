@@ -9,10 +9,14 @@
   "bin": {
     "greenlight": "./bin/greenlight.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShadowSlayer03/GreenLight-CLI.git"
+  },
   "keywords": [],
-  "author": "",
+  "author": "ShadowSlayer03",
   "license": "ISC",
-  "description": "",
+  "description": "A CLI tool for running preflight checks smartly and efficiently.",
   "dependencies": {
     "chalk": "^5.4.1",
     "commander": "^14.0.0",

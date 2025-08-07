@@ -11,7 +11,7 @@ function displayIntro() {
     console.log(chalk.green(data));
     console.log(chalk.green("Created by ShadowSlayer03(O810099)"));
     console.log(
-        chalk.green("A CLI tool for running preflight checks efficiently.")
+        chalk.green("A CLI tool for running preflight checks smartly and efficiently.")
     );
     console.log();
 }
