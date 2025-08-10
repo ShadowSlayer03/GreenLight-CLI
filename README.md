@@ -2,6 +2,8 @@
 
 Smart preflight checker for lint, build, test, and component validation — built for speed and precision.
 
+![Greenlight showcase](image.png)
+
 ## **✨ Features**
 
 * ✅ Runs **lint**, **build**, **unit tests**, and **component tests** smartly  
@@ -31,15 +33,6 @@ greenlight \--only component
 Multiple:
 
 greenlight \--only lint,test
-
-## **⚙️ Options**
-
-| Flag | Description |
-| :---- | :---- |
-| \--only | Run only specific checks (lint, build, test, component) |
-| \--smart | Runs checks only on impacted files |
-| \--report | Outputs markdown report to stdout |
-| \--verbose | Prints detailed logs |
 
 ## **💡 Example Workflow**
 
