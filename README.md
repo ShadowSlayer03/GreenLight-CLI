@@ -21,22 +21,36 @@ npm install \-g greenlight
 
 Run all preflight checks:
 
+```bash
+
 greenlight \--smart
 
+```
+
 Only run specific checks:
+
+```bash
 
 greenlight \--only lint  
 greenlight \--only build  
 greenlight \--only test  
 greenlight \--only component
 
+```
+
 Multiple:
 
+```bash
+
 greenlight \--only lint,test
+
+```
 
 ## **💡 Example Workflow**
 
 Add to a Husky pre-push hook:
+
+```bash
 
 \#\!/bin/sh  
 \# Return early if we’re in Jenkins  
@@ -63,7 +77,11 @@ fi
 echo "✅ All pre-push checks passed. Proceeding with push."  
 exit 0
 
+```
+
 ## **📁 Project Structure**
+
+```bash
 
 greenlight/  
 ├── bin/  
@@ -78,9 +96,9 @@ greenlight/
 │   └── updateCypressTargets.js  
 └── package.json
 
-## **🙌 Contributing**
+```
 
-We welcome contributions of all kinds\! Whether you're fixing a bug, adding a new feature, or improving documentation, your help is appreciated.
+## **🙌 Note **
 
 This project is maintained by ShadowSlayer03. Please feel free to open a new issue or submit a pull request on the repository. For direct inquiries, you can reach out at sslayer441@gmail.com.
 
