@@ -155,7 +155,7 @@ export async function runChecks({
 
     const impactedSpecs = impactedFiles
       ?.filter((file) => file.endsWith(".cy.tsx"))
-      ?.join(" ");
+      ?.join(", ");
 
     if (impactedSpecs) {
       testComponentCommands.push({

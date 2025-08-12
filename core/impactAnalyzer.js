@@ -7,7 +7,7 @@ async function analyzeImpact() {
         .split('\n')
         .filter(f => f.endsWith('.ts') || f.endsWith('.tsx'));
 
-    //console.log("Changed Files:",changedFiles);
+    console.log("Changed Files:",changedFiles);
 
     const impactedFiles = await getImpactedFiles(changedFiles);
     //console.log("Impacted Files:",result);
