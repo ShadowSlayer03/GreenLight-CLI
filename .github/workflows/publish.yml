@@ -14,7 +14,7 @@ jobs:
       - name: ⬇️ Checkout repository
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }} # Needed for pushing version bump back to repo
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 📦 Set up Node.js
         uses: actions/setup-node@v4
@@ -22,14 +22,16 @@ jobs:
           node-version: 20
           registry-url: 'https://registry.npmjs.org/'
 
-      - name: 📥 Install dependencies
-        run: npm ci
+      # - name: 📥 Install dependencies
+      #   run: npm ci
+
+      - name: 🆔 Configure Git identity
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: 🔼 Auto bump patch version
-        run: |
-          npm version patch -m "🔼 Bump version to %s [skip ci]"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm version patch -m "🔼 Bump version to %s [skip ci]"
 
       # Optional: Build CLI
       # - name: 🏗️ Build CLI
@@ -41,7 +43,4 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: 📤 Push version bump commit
-        run: |
-          git push --follow-tags
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: git push --follow-tags
