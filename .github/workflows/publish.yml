@@ -1,9 +1,9 @@
-name: 📦 Publish greenlight-cli to npm
+name: 📦 Publish greenlight-cli to npm (Auto Patch Bump)
 
 on:
   push:
     branches:
-      - main  # Runs on every push to main
+      - main
 
 jobs:
   publish:
@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: ⬇️ Checkout repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }} # Needed for pushing version bump back to repo
 
       - name: 📦 Set up Node.js
         uses: actions/setup-node@v4
@@ -23,7 +25,13 @@ jobs:
       - name: 📥 Install dependencies
         run: npm ci
 
-      # Optional: Build step
+      - name: 🔼 Auto bump patch version
+        run: |
+          npm version patch -m "🔼 Bump version to %s [skip ci]"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Optional: Build CLI
       # - name: 🏗️ Build CLI
       #   run: npm run build
 
@@ -31,3 +39,9 @@ jobs:
         run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: 📤 Push version bump commit
+        run: |
+          git push --follow-tags
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
